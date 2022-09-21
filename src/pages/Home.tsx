@@ -10,6 +10,7 @@ export function Home() {
 
   function handleAddTask(newTaskTitle: string) {
     if (!newTaskTitle) return
+    if (newTaskTitle === '') return
 
     const updatedTasks = tasks.map(task => ({ ...task }))
     const taskAlreadyExists = updatedTasks.find(task => task.title === newTaskTitle)

@@ -10,13 +10,15 @@ export function TodoInput({ addTask }: TodoInputProps) {
   const [task, setTask] = useState('')
 
   function handleAddNewTask() {
-      addTask(task)
+    if (!task) return
+    addTask(task)
+    setTask('')
   }
 
   return (
     <View style={styles.inputContainer}>
-      <TextInput 
-        style={styles.input} 
+      <TextInput
+        style={styles.input}
         placeholder="Adicionar novo todo..."
         placeholderTextColor="#B2B2B2"
         returnKeyType="send"
